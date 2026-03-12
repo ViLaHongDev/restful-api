@@ -9,4 +9,6 @@ public interface UserService {
     public UserResponse create(UserCreateRequest request);
     public List<UserResponse> getAll();
     public UserResponse getById(Long id);
+    public void delete(Long id);
+    public UserResponse update(Long id,UserCreateRequest request);
 }

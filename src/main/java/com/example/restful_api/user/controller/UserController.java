@@ -15,6 +15,10 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id){
+        userService.delete(id);
+    }
     @GetMapping
     public List<UserResponse> getAll(){
         return userService.getAll();
@@ -28,5 +32,10 @@ public class UserController {
     @PostMapping
     public UserResponse create(@RequestBody UserCreateRequest request){
         return userService.create(request);
+    }
+
+    @PutMapping("{id}")
+    public UserResponse update(@PathVariable Long id, @RequestBody UserCreateRequest request){
+        return userService.update(id,request);
     }
 }
